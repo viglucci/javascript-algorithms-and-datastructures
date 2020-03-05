@@ -1,0 +1,28 @@
+{
+  "name": "javascript-algorithms-and-datastructures",
+  "version": "0.1.0",
+  "description": "Exercises to leverage datastructures and algorithms written in JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --opts ./mocha.opts \"datastructures/**/*.spec.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viglucci/javascript-algorithms-and-datastructures.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/viglucci/javascript-algorithms-and-datastructures/issues"
+  },
+  "homepage": "https://github.com/viglucci/javascript-algorithms-and-datastructures#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "prettier": "1.18.2"
+  }
+}
