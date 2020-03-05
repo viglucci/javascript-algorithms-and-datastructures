@@ -1,3 +1,6 @@
+import LinkedList from "../../datastructures/LinkedList/LinkedList";
+import {expect} from "chai";
+
 const contains = (subject, search) => {
     const subjectChars = subject.split("");
     const searchLength = search.length;
@@ -7,7 +10,7 @@ const contains = (subject, search) => {
             return false;
         }
         const char = subjectChars[i];
-        if (char == firstSearchChar) {
+        if (char === firstSearchChar) {
             const potentialMatchChars = subjectChars.slice(i, i + searchLength);
             const potentialMatchString = potentialMatchChars.join("");
             if (potentialMatchString === search) {
@@ -17,7 +20,11 @@ const contains = (subject, search) => {
     }
 };
 
-console.log(contains("quick brown fox", "brown")); // true
-console.log(contains("br o w n", "brown")); // false
-console.log(contains("andre", "kevin")); // false
-console.log(contains("aaabcd", "aabc")); // true
+describe('contains', () => {
+    it('returns true or false depending if the string contains the other string', () => {
+        expect(contains("quick brown fox", "brown")).to.equal(true);
+        expect(contains("br o w n", "brown")).to.equal(false);
+        expect(contains("andre", "kevin")).to.equal(false);
+        expect(contains("aaabcd", "aabc")).to.equal(true);
+    });
+});
