@@ -1,4 +1,4 @@
-import {expect} from 'chai'
+import {expect} from 'chai';
 
 const contains = (subject, search) => {
     if(!subject || !search) return false;
