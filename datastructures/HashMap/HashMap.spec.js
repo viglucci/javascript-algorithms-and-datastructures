@@ -9,7 +9,18 @@ describe('HashMap', () => {
             map.put('A', 11);
             map.put('A', 12);
             expect(map.get('A')).to.equal(12);
-            expect(map.size()).to.equal(1);
+        });
+    });
+
+    describe('get', () => {
+        it('returns the value stored at a specified key', () => {
+            const map = new HashMap();
+            map.put('A', 10);
+            map.put('B', 11);
+            map.put('C', 12);
+            expect(map.get('A')).to.equal(10);
+            expect(map.get('B')).to.equal(11);
+            expect(map.get('C')).to.equal(12);
         });
     });
 
