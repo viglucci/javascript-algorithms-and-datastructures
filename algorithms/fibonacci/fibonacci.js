@@ -1,37 +1,37 @@
-import {expect} from 'chai';
+import { expect } from 'chai';
 
 const fib = (n) => {
     if (n === 0 || n === 1) {
         return n;
-    } else {
-        return fib(n - 1) + fib(n - 2);
     }
+    return fib(n - 1) + fib(n - 2);
 };
 
 const fib2 = (n, memo) => {
     if (!memo) {
         memo = {};
     }
+
     if (n === 0 || n === 1) {
         return n;
-    } else {
-        let aKey = n - 1;
-        let bKey = n - 2;
-
-        let a = memo[aKey];
-        if (!a) {
-            a = fib2(aKey, memo);
-            memo[aKey] = a;
-        }
-
-        let b = memo[bKey];
-        if (!b) {
-            b = fib2(bKey, memo);
-            memo[bKey] = b;
-        }
-
-        return a + b;
     }
+
+    let aKey = n - 1;
+    let bKey = n - 2;
+
+    let a = memo[aKey];
+    if (!a) {
+        a = fib2(aKey, memo);
+        memo[aKey] = a;
+    }
+
+    let b = memo[bKey];
+    if (!b) {
+        b = fib2(bKey, memo);
+        memo[bKey] = b;
+    }
+
+    return a + b;
 };
 
 describe('fib', () => {
