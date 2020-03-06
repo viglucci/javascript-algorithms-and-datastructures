@@ -34,6 +34,24 @@ const fib2 = (n, memo) => {
     return a + b;
 };
 
+const fib3 = (n) => {
+
+    if (n === 0 || n === 1)
+        return n;
+
+    let cursorBack = 0;
+    let cursorFront = 1;
+
+    let f = 0;
+    for (let i = 0; i < n - 1; i++) {
+        f = cursorBack + cursorFront;
+        cursorBack = cursorFront;
+        cursorFront = f;
+    }
+
+    return f;
+};
+
 describe('fib', () => {
     it('fib', () => {
         expect(fib(0)).to.equal(0);
@@ -45,5 +63,11 @@ describe('fib', () => {
         expect(fib2(0)).to.equal(0);
         expect(fib2(1)).to.equal(1);
         expect(fib2(9)).to.equal(34);
+    });
+
+    it('fib3', () => {
+        expect(fib3(0)).to.equal(0);
+        expect(fib3(1)).to.equal(1);
+        expect(fib3(9)).to.equal(34);
     });
 });
