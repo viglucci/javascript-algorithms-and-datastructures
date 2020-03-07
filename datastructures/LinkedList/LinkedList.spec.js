@@ -12,15 +12,31 @@ describe('LinkedList', () => {
         });
     });
 
-    describe('remove', () => {
+    describe('removeAll', () => {
+        it('removes all instance of a value from the list when only one value exists', () => {
+            const list = new LinkedList();
+            list.add(10);
+            list.removeAll(10);
+            expect(list.size()).to.equal(0);
+        });
+
         it('removes all instance of a value from the list', () => {
             const list = new LinkedList();
             list.add(10);
             list.add(11);
             list.add(12);
             list.add(11);
-            list.remove(11);
+            list.removeAll(11);
             expect(list.size()).to.equal(2);
+
+            const list2 = new LinkedList();
+            list2.add(10);
+            list2.add(10);
+            list2.add(11);
+            list2.add(10);
+            list2.add(10);
+            list2.removeAll(10);
+            expect(list2.size()).to.equal(1);
         });
 
         it('can remove all values from the list', () => {
@@ -28,7 +44,7 @@ describe('LinkedList', () => {
             list.add(9);
             list.add(9);
             list.add(9);
-            list.remove(9);
+            list.removeAll(9);
             expect(list.size()).to.equal(0);
         });
     });
@@ -52,7 +68,7 @@ describe('LinkedList', () => {
     });
 
     describe('size', () => {
-        it('returns the number of items in teh list', () => {
+        it('returns the number of items in the list', () => {
             const list = new LinkedList();
             list.add(10);
             list.add(11);
@@ -60,8 +76,12 @@ describe('LinkedList', () => {
             list.add(12);
             list.add(12);
             list.add(12);
-            list.add(12);
+            list.add(13);
             expect(list.size()).to.equal(7);
+
+            list.removeAll(10);
+            list.removeAll(13);
+            expect(list.size()).to.equal(5);
         });
     });
 });

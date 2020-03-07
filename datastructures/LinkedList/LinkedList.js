@@ -17,6 +17,7 @@ class LinkedList {
 
     constructor() {
         this._head = null;
+        this._size = 0;
     }
 
     add(value) {
@@ -30,33 +31,30 @@ class LinkedList {
             }
             head._next = newNode;
         }
+        this._size++;
     }
 
-    remove(value, comparator) {
-        let head = this._head;
-        if (!head) {
-            return;
-        }
+    removeAll(value, comparator) {
 
         if (!comparator) {
             comparator = (a, b) => a === b;
         }
 
-        let previous = head;
-        do {
-            const _value = head.value();
-            const matches = comparator(_value, value);
-            if (matches && previous === head) {
-                head = null;
-                this._head = head;
-            } else if (matches) {
-                previous._next = head._next;
-                head = head._next;
-            } else  {
-                previous = head;
-                head = head._next;
+        let head = this._head;
+
+        while(head && comparator(head.value(), value)) {
+            head = head.next();
+            this._head = head;
+        }
+
+        while(head) {
+            const next = head.next();
+            if (next && comparator(next.value(), value)) {
+                head._next = next.next();
+            } else {
+                head = next;
             }
-        } while(head);
+        }
     }
 
     contains(value, comparator) {
