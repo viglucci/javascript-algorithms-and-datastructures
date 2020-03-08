@@ -20,6 +20,10 @@ class LinkedList {
         this._size = 0;
     }
 
+    /**
+     * Appends the specified element to the end of this list.
+     * @param {any} value
+     */
     add(value) {
         if (this._head === null) {
             this._head = new Node(value);
@@ -34,6 +38,12 @@ class LinkedList {
         this._size++;
     }
 
+    /**
+     * Removes all occurrences of the value from the list.
+     * @param value
+     * @param comparator
+     * @returns void
+     */
     removeAll(value, comparator) {
 
         if (!comparator) {
@@ -57,6 +67,12 @@ class LinkedList {
         }
     }
 
+    /**
+     * Returns true if this list contains the specified element
+     * @param value
+     * @param comparator
+     * @returns {boolean}
+     */
     contains(value, comparator) {
 
         if (!this._head) {
@@ -83,6 +99,10 @@ class LinkedList {
         return false;
     }
 
+    /**
+     * Returns the number of elements in this list.
+     * @returns {number}
+     */
     size() {
         let size = 0;
         let head = this._head;
