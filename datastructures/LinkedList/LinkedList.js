@@ -39,6 +39,19 @@ class LinkedList {
     }
 
     /**
+     * Retrieves and removes the head (first element) of this list.
+     * @returns {any}
+     */
+    remove() {
+        const head = this._head;
+        if (!head) {
+            return null;
+        }
+        this._head = head.next();
+        return head.value();
+    }
+
+    /**
      * Removes all occurrences of the value from the list.
      * @param value
      * @param comparator
