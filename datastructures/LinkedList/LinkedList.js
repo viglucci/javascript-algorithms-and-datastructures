@@ -48,6 +48,7 @@ class LinkedList {
             return null;
         }
         this._head = head.next();
+        this._size--;
         return head.value();
     }
 
@@ -65,15 +66,17 @@ class LinkedList {
 
         let head = this._head;
 
-        while(head && comparator(head.value(), value)) {
+        while (head && comparator(head.value(), value)) {
             head = head.next();
             this._head = head;
+            this._size--;
         }
 
-        while(head) {
+        while (head) {
             const next = head.next();
             if (next && comparator(next.value(), value)) {
                 head._next = next.next();
+                this._size--;
             } else {
                 head = next;
             }
@@ -117,13 +120,7 @@ class LinkedList {
      * @returns {number}
      */
     size() {
-        let size = 0;
-        let head = this._head;
-        while (head) {
-            size++;
-            head = head._next;
-        }
-        return size;
+        return this._size;
     }
 }
 
