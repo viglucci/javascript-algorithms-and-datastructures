@@ -48,11 +48,3 @@ class Queue {
 }
 
 module.exports = Queue;
-
-/**
- *
- *
-[1][][][]
-
-
-*/
